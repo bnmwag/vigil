@@ -1,15 +1,21 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
+	  "enabled": true
 	},
 	"formatter": {
-		"enabled": true
+	  "enabled": true,
+	  "lineWidth": 120,
+	  "indentWidth": 2,
+	  "indentStyle": "space",
+	  "ignore": ["**/node_modules/**"],
+	  "attributePosition": "auto"
+	},
+	"linter": {
+	  "enabled": true,
+	  "rules": {
+		"recommended": true
+	  }
 	}
-}
+  }
+  
