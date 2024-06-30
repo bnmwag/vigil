@@ -6,7 +6,10 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"b:format": "npx @biomejs/biome format --write ./",
+		"b:lint": "npx @biomejs/biome lint",
+		"b:check": "npx @biomejs/biome check --write ./"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^3.6.0",
