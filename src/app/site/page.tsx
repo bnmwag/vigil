@@ -6,13 +6,13 @@ import { Header } from "./components/header";
 import { Hero } from "./components/hero";
 
 const SiteIndexPage: NextPage = () => {
-	return (
-		<>
-			<Hero />
-			<Features />
-			<FAQ />
-		</>
-	);
+  return (
+    <>
+      <Hero />
+      <Features />
+      <FAQ />
+    </>
+  );
 };
 
 export default SiteIndexPage;
