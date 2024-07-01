@@ -47,7 +47,7 @@ export const FAQ: FC = () => {
       <div className="mx-auto max-w-screen-md">
         <Accordion type="multiple" className="w-full">
           {items.map((item, index) => (
-            <AccordionItem value={`item-${index}`} key={`item-${index}`}>
+            <AccordionItem value={`item-${index}`} key={`item-${index}-${item.question}`}>
               <AccordionTrigger>{item.question}</AccordionTrigger>
               <AccordionContent>{item.answer}</AccordionContent>
             </AccordionItem>
