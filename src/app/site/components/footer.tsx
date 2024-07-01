@@ -8,7 +8,7 @@ export const Footer: FC = () => {
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <Link href="https://flowbite.com" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vigil&trade;</span>
             </Link>
           </div>
@@ -17,8 +17,8 @@ export const Footer: FC = () => {
               <h2 className="mb-6 text-sm font-semibold text-neutral-900 uppercase dark:text-white">Resources</h2>
               <ul className="text-neutral-600 dark:text-neutral-400">
                 <li className="mb-4">
-                  <Link href="https://flowbite.com" className="hover:underline">
-                    Flowbite
+                  <Link href="/" className="hover:underline">
+                    Vigil
                   </Link>
                 </li>
                 <li>
@@ -32,7 +32,7 @@ export const Footer: FC = () => {
               <h2 className="mb-6 text-sm font-semibold text-neutral-900 uppercase dark:text-white">Follow us</h2>
               <ul className="text-neutral-600 dark:text-neutral-400">
                 <li className="mb-4">
-                  <Link href="https://github.com/themesberg/flowbite" className="hover:underline ">
+                  <Link href="https://github.com/themesberg/Vigil" className="hover:underline ">
                     Github
                   </Link>
                 </li>
@@ -64,8 +64,8 @@ export const Footer: FC = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-neutral-500 sm:text-center dark:text-neutral-400">
             © 2022{" "}
-            <Link href="https://flowbite.com" className="hover:underline">
-              Flowbite™
+            <Link href="/" className="hover:underline">
+              Vigil™
             </Link>
             . All Rights Reserved.
           </span>
