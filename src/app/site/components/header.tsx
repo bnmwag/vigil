@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import type { FC } from "react";
 import { Nav } from "./nav";
+import { signIn } from "next-auth/react";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { useCurrentUser } from "@/hooks/use-current-user";
+import { cn } from "@/lib/utils";
+import { signOut } from "@/auth";
+import { logout } from "@/actions/logout";
 
 export const Header: FC = () => {
+  const user = useCurrentUser();
+
   return (
     <header>
       <nav className="border-neutral-200 px-4 lg:px-6 py-2.5">
@@ -14,12 +24,19 @@ export const Header: FC = () => {
             <Nav />
           </div>
           <div className="flex items-center justify-end">
-            <Link
-              href="/get-started"
-              className="text-white bg-brand-700 hover:bg-brand-800 focus:ring-4 focus:ring-brand-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-brand-600 dark:hover:bg-brand-700 focus:outline-none dark:focus:ring-brand-800"
-            >
-              Get started
-            </Link>
+            {user ? (
+              <>
+                <div>{user.name}</div>
+                <Button onClick={() => logout()}>Sign out</Button>
+              </>
+            ) : (
+              <>
+                <Button onClick={() => signIn("github")}>Sign in</Button>
+                <Link href="/get-started" className={cn(buttonVariants({ variant: "default" }))}>
+                  Get started
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

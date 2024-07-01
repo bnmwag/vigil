@@ -1,7 +1,11 @@
+import NextAuth from "next-auth";
 import { type NextRequest, NextResponse } from "next/server";
+import authConfig from "@/auth/config";
 import { marketingRoutes, marketingRoutPrefix } from "./routes";
 
-export function middleware(req: NextRequest) {
+const { auth } = NextAuth(authConfig);
+
+export default auth((req: NextRequest) => {
   const { nextUrl: url, headers } = req;
   const searchParams = url.searchParams.toString();
   const hostname = headers.get("host");
@@ -30,8 +34,8 @@ export function middleware(req: NextRequest) {
     const newPath = pathname === "/" ? "/site" : `/site/${pathname.startsWith("/") ? pathname.slice(1) : pathname}`;
     return NextResponse.rewrite(new URL(newPath, req.url));
   }
-}
+});
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };

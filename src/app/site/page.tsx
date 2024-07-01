@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import { FAQ } from "./components/faq";
 import { Features } from "./components/features";
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
 import { Hero } from "./components/hero";
+import { currentUser } from "@/lib/auth";
 
-const SiteIndexPage: NextPage = () => {
+const SiteIndexPage: NextPage = async () => {
+  const user = await currentUser();
+
   return (
     <>
       <Hero />
