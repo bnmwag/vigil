@@ -21,6 +21,7 @@ const env = createEnv({
     NEXT_PUBLIC_DOMAIN: z.string(),
     AUTH_SECRET: z.string(),
     AUTH_DRIZZLE_URL: z.string(),
+    NEXTAUTH_URL: z.string(),
   },
   runtimeEnv: process.env,
 });

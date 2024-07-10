@@ -13,7 +13,6 @@ export default {
     GitHub({
       clientId: config.env.AUTH_GITHUB_ID,
       clientSecret: config.env.AUTH_GITHUB_SECRET,
-      allowDangerousEmailAccountLinking: true,
     }),
     // credentials({
     //   async authorize(credentials) {

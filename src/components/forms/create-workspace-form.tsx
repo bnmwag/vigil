@@ -25,34 +25,31 @@ const loadingStates = [
 
 export const CreateWorkspaceForm: FC = () => {
   const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | undefined>("")
-  const [success, setSuccess] = useState<string | undefined>("")
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
 
   const form = useForm<z.infer<typeof CreateWorkspaceSchema>>({
     resolver: zodResolver(CreateWorkspaceSchema),
     defaultValues: { name: "", subdomain: "" },
   });
 
-  const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
   const onSubmit = form.handleSubmit(async (values: z.infer<typeof CreateWorkspaceSchema>) => {
     startTransition(async () => {
       createWorkspace(values)
         .then((data) => {
           console.log(data);
-          
 
           if (data?.error) {
-            form.reset()
-            setError(data.error)
+            form.reset();
+            setError(data.error);
           }
 
           if (data?.success) {
-            form.reset()
-            setSuccess(data.success)
+            form.reset();
+            setSuccess(data.success);
           }
         })
-        .catch(() => setError("Something went wrong"))
+        .catch(() => setError("Something went wrong"));
     });
   });
 
@@ -115,7 +112,7 @@ export const CreateWorkspaceForm: FC = () => {
         </form>
       </Form>
       <FormError message={error} />
-          <FormSuccess message={success} />
+      <FormSuccess message={success} />
     </section>
   );
 };
